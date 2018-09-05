@@ -4,7 +4,8 @@
   height: 350rpx;
 }
 .content-item{
-  margin-top: 40rpx;
+  margin-top: 50rpx;
+  /* border-bottom: 1px solid #888; */
 }
 .content-item .title{
   font-size: 16px;

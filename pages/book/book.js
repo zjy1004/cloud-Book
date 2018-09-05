@@ -13,14 +13,15 @@ Page({
       catalog: [],
       isShow: false,
       isLoading: false,
-      font: 40
+      font: 40,
+      index:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
        this.setData({
          titleId: options.id,
          bookId: options.bookId
@@ -33,11 +34,12 @@ getData() {
     isLoading: true
   })
   fetch.get(`/article/${this.data.titleId}`).then(res =>{
-    console.log(res)
+    // console.log(res)
     this.setData({
       article: res.data.article.content,
       title: res.data.title,
-      isLoading: false
+      isLoading: false,
+      index: res.data.article.index
     })
   }).catch(err => {
     this.setData({
@@ -48,7 +50,7 @@ getData() {
 //获取目录
 getCatalog() {
   fetch.get(`/titles/${this.data.bookId}`).then(res => {
-    console.log(res)
+    // console.log(res)
     this.setData({
       catalog: res.data
     })
@@ -88,6 +90,36 @@ toggleCatalog() {
       this.setData({
         font: this.data.font - 2
       })
+    }
+  },
+  //点击到下一章
+  handleNext() {
+    // console.log(catalog)
+    let catalog = this.data.catalog
+    if(catalog[this.data.index + 1]){
+      this.setData({
+        titleId: catalog[this.data.index + 1]._id
+      }) 
+      this.getData() 
+    }else{
+      wx.showToast({
+        title: "已是最后一章了"
+      })
+    }
+  },
+  //点击到上一章
+  handlePre() {
+    // console.log(catalog)
+    let catalog = this.data.catalog
+    if (this.data.index - 1 < 0) {
+      wx.showToast({
+        title: '已经是第一章了',
+      })
+    } else {
+      this.setData({
+        titleId: catalog[this.data.index - 1]._id
+      })
+      this.getData()     
     }
   },
   /**

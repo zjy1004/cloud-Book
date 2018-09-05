@@ -22,6 +22,7 @@ Page({
       isLoading: true
     })
     fetch.get('/swiper').then(res => {
+      // console.log(res)
       this.setData({
         swiperData: res.data,
         isLoading: false
@@ -30,6 +31,7 @@ Page({
   },
   getContent() {
     fetch.get('/category/books').then(res => {
+      // console.log(res)
       this.setData({
         mainContent: res.data
       })

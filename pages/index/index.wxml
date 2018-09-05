@@ -15,10 +15,10 @@
         {{item.title}}
       </view>
       <view class="content" wx:for="{{item.books}}" wx:key="index">
-        <view class="box-l">
+        <view class="box-l" bindtap="jumpBook" data-id="{{item._id}}">
           <image src="{{item.img}}" class="img"></image>
         </view>
-        <view class="box-r">
+        <view class="box-r" bindtap="jumpBook" data-id="{{item._id}}">
           <view>
             <view class="book-title">{{item.title}}</view>
             <view class="book-desc">{{item.desc}}</view>
@@ -33,6 +33,7 @@
           </view>
         </view>
       </view>
+    
     </view>
   </view>
 </view>

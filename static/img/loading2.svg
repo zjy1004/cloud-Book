@@ -1,0 +1,63 @@
+<svg class="ldt-blank" width="360px"  height="80px"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" style="background: none;"><style type="text/css">path,ellipse,circle,rect,polygon,polyline,line { stroke-width: 0; }
+@keyframes ld-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes ld-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.ld.ld-fade {
+  -webkit-animation: ld-fade 1s infinite linear;
+  animation: ld-fade 1s infinite linear;
+}
+
+text { font-family: Courier New }</style><g transform="translate(29.8046875 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: 0s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#df1317" style="font-family:Courier New">l</text>
+  </g>
+</g><g transform="translate(59.8046875 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.1s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#e4934b" style="font-family:Courier New">o</text>
+  </g>
+</g><g transform="translate(89.8046875 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.2s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#e2bb8b" style="font-family:Courier New">a</text>
+  </g>
+</g><g transform="translate(119.8046875 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.3s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15.1953px 0px 0px;" class="ld ld-fade">
+    <text fill="#e1e7e7" style="font-family:Courier New">d</text>
+  </g>
+</g><g transform="translate(150.1953125 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.4s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#91bcc6" style="font-family:Courier New">i</text>
+  </g>
+</g><g transform="translate(180.1953125 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.5s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#07abcc" style="font-family:Courier New">n</text>
+  </g>
+</g><g transform="translate(210.1953125 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.6s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#0a69aa" style="font-family:Courier New">g</text>
+  </g>
+</g><g transform="translate(240.1953125 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.7s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#194645" style="font-family:Courier New">.</text>
+  </g>
+</g><g transform="translate(270.1953125 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.8s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#df1317" style="font-family:Courier New">.</text>
+  </g>
+</g><g transform="translate(300.1953125 57.0390625)" style="opacity: 1;">
+  <g style="animation-delay: -0.9s; animation-duration: 1s; font-size: 50px; animation-direction: normal; transform-origin: 15px 0px 0px;" class="ld ld-fade">
+    <text fill="#e4934b" style="font-family:Courier New">.</text>
+  </g>
+</g></svg>

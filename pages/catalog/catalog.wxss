@@ -3,7 +3,9 @@
   font-size: 14px;
   color: #333;
 }
-
+.catalog-item:active {
+  background: #444;
+}
 .catalog .link {
   line-height: 3;
   border-bottom: 2rpx solid #333;
