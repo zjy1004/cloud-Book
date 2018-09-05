@@ -4,7 +4,7 @@
   <view class="wemark-wrap" style="{{'font-size:' + font + 'rpx'}}">
     <wemark md="{{article}}"  highlight type= "rich-text"></wemark>
   </view>
-  <scroll-view scroll-y class="catalog-menu" wx:if="{{isShow}}">
+  <scroll-view scroll-y class="catalog-menu {{isShow ? 'active' : ''}}">
     <view class="catalog-item" wx:for="{{catalog}}" wx:key="{{index}}" bindtap="handleGet" data-id="{{item._id}}">
       {{item.title}}
     </view>

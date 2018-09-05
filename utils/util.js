@@ -2,8 +2,9 @@ const baseUrl = "https://m.yaojunrong.com"
 const fetch = {
   http (url, method, data){
     return new Promise((resolve, reject)=> {
+
       wx.request({
-        url: baseUrl + url,
+        url: baseUrl + url + '?size=3',
         data,
         method,
         header: {
