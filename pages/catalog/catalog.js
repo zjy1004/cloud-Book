@@ -7,7 +7,8 @@ Page({
    */
   data: {
      bookId: "",
-     catalogData: []
+     catalogData: [],
+     isLoading: false
   },
 
   /**
@@ -20,9 +21,13 @@ Page({
       this.getData()
   },
   getData() {
+    this.setData({
+      isLoading: true
+    })
     fetch.get(`/titles/${this.data.bookId}`).then(res => {
       this.setData({
-        catalogData: res.data
+        catalogData: res.data,
+        isLoading: false
       })
     })
   },

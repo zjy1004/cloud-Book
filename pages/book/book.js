@@ -11,7 +11,9 @@ Page({
       article: {},
       title: "",
       catalog: [],
-      isShow: false
+      isShow: false,
+      isLoading: false,
+      font: 40
   },
 
   /**
@@ -27,15 +29,23 @@ Page({
     this.getCatalog()
   },
 getData() {
+  this.setData({
+    isLoading: true
+  })
   fetch.get(`/article/${this.data.titleId}`).then(res =>{
     console.log(res)
-    let data = app.towxml.toJson(res.data.article.content, 'markdown')
     this.setData({
-      article: data,
-      title: res.data.title
+      article: res.data.article.content,
+      title: res.data.title,
+      isLoading: false
+    })
+  }).catch(err => {
+    this.setData({
+      isLoading: false
     })
   })
 },
+//获取目录
 getCatalog() {
   fetch.get(`/titles/${this.data.bookId}`).then(res => {
     console.log(res)
@@ -44,12 +54,14 @@ getCatalog() {
     })
   })
 },
+//点击显示目录
 toggleCatalog() {
     let isShow = !this.data.isShow
     this.setData({
       isShow
     })
   },
+//点击目录跳转至内容
   handleGet(event) {
     const id = event.currentTarget.dataset.id
     this.setData({
@@ -57,6 +69,26 @@ toggleCatalog() {
     })
     this.getData()
     this.toggleCatalog()
+  },
+  //点击字体放大
+  handleAdd() {
+     this.setData({
+       font: this.data.font + 2
+     })
+  },
+  //点击字体缩小
+  handleReduce() {
+    if (this.data.font <= 24){
+      wx.showModal({
+        title: "提示",
+        content: "字体太小影响视力",
+        showCancel: false
+      })
+    }else{
+      this.setData({
+        font: this.data.font - 2
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
