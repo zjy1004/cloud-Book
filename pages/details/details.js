@@ -8,14 +8,16 @@ Page({
   data: {
         bookId:"",
         bookData: {},
-        isLoading: false
+        isLoading: false,
+        isCollect: 0,
+        disabled: false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
      this.setData({
-       bookId: options.id
+       bookId: options.id,
      })
      this.getData()
   },
@@ -24,15 +26,25 @@ Page({
       isLoading:true
     })
     fetch.get(`/book/${this.data.bookId}`).then(res => {
+      // console.log(res)
      this.setData({
        bookData: res,
-       isLoading: false
+       isLoading: false,
+       isCollect:res.isCollect
      })
     })
   },
   jumpCatalog() {
     wx.navigateTo({
       url: `/pages/catalog/catalog?id=${this.data.bookId}`,
+    })
+  },
+  handleCollect() {
+     this.setData({
+       isCollect: this.data.isCollect + 1
+     })
+    fetch.post('/collection', {bookId: this.data.bookId}).then( res => {
+      console.log(res)
     })
   },
 
@@ -82,6 +94,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return{
+      title: this.data.bookData.data.title,
+      path: `/pages/details/details?id=${this.data.bookId}`,
+      imageUrl: this.data.bookData.data.img
+    }
   }
 })

@@ -3,12 +3,37 @@
     "pages/index/index",
     "pages/details/details",
     "pages/catalog/catalog",
-    "pages/book/book"
+    "pages/book/book",
+    "pages/personal/personal",
+    "pages/study/study"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "C-Book",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296DB",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/icon/home.png",
+        "selectedIconPath": "/static/icon/home_fill.png"
+      },
+      {
+        "pagePath": "pages/study/study",
+        "text": "我的学习",
+        "iconPath": "/static/icon/collection.png",
+        "selectedIconPath": "/static/icon/collection_fill.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/static/icon/my_light.png",
+        "selectedIconPath": "/static/icon/my_fill_light.png"
+      }
+    ]
   }
 }

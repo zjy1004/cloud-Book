@@ -98,7 +98,9 @@ toggleCatalog() {
     let catalog = this.data.catalog
     if(catalog[this.data.index + 1]){
       this.setData({
-        titleId: catalog[this.data.index + 1]._id
+        titleId: catalog[this.data.index + 1]._id,
+        isShow: false
+        
       }) 
       this.getData() 
     }else{
@@ -117,7 +119,8 @@ toggleCatalog() {
       })
     } else {
       this.setData({
-        titleId: catalog[this.data.index - 1]._id
+        titleId: catalog[this.data.index - 1]._id,
+        isShow: false
       })
       this.getData()     
     }

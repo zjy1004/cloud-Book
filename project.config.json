@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.5",
-	"appid": "wx2c789d0f780a202a",
-	"projectname": "cloudBook1",
+	"appid": "wx9a6c7a960b11b261",
+	"projectname": "cloudBook",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

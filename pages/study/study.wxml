@@ -1,0 +1,9 @@
+<!--pages/study/study.wxml-->
+<view wx:for="{{bookData}}" wx:key="{{index}}" >
+<view>
+<image src="{{item.book.img}}"></image>
+</view>
+<view>
+{{item.book.title}}
+</view>
+</view>
