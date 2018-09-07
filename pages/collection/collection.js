@@ -1,61 +1,49 @@
-// pages/personal/personal.js
-import {fetch} from "../../utils/util.js"
+// pages/collection/collection.js
+import { fetch } from "../../utils/util.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    userMessage: {},
-    isLoading:true,
-    collections: ""
+     collcetions:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 查看是否授权
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res.userInfo)
-            }
-          })
-        }
-      }
-    }) 
     this.getData()
   },
-  bindGetUserInfo: function (e) {
-    console.log(e.detail.userInfo)
-    this.setData({
-      userMessage: e.detail.userInfo,
-      isLoading: false
-    })
-  },
   getData() {
-    fetch.get('/collection').then(res => {
+    fetch.get('/collection').then( res => {
+     console.log(res)
+     this.setData({
+       collcetions: res.data
+     })
+    })
+  },
+  cancel(e) {
+    console.log(e)
+    fetch.delete(`/collection/${e.currentTarget.dataset.id}`).then(res => {
       console.log(res)
-      this.setData({
-        collections: res.data.length
-      })
     })
+    this.getData()
   },
-  jumpCollect (res) {
+  //获取单个图书
+  getDetails(e) {
+    // console.log(e)
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/collection/collection',
+      url: `/pages/details/details?id=${id}`,
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-       
+
   },
 
   /**

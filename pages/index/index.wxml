@@ -15,7 +15,7 @@
         <view class="title">
           {{item.title}}
         </view>
-        <view class="content" wx:for="{{item.books}}" wx:key="index" wx:for-item="bookItem" data-id="{{bookItem._id}}" bindtap="jumpBook">
+        <view class="content" wx:for="{{item.books}}"  wx:key="index" wx:for-item="bookItem" data-id="{{bookItem._id}}" bindtap="jumpBook">
           <view class="box-l">
             <image src="{{bookItem.img}}" class="img"></image>
           </view>
@@ -38,15 +38,6 @@
     </view>
   </view>
 </view>
-<view wx:if="{{!isLoading}}">
-<view wx:if="{{hasmore}}"  class="loadmore">
-  <image src="/static/img/loadMore.svg"></image>
-  <text>正拼命加载中...</text>
-</view>
-<view class="no-more" wx:else>
-  <text>我是有底线的</text>
-  <text class="line"></text>
-</view>
-</view>
+
 
 </view>

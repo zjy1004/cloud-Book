@@ -97,7 +97,7 @@ Page({
         pn: this.data.pn + 1
       })
       this.getMoreContent().then( res => {
-        if(res.data.length < 2){
+        if(res.data.length < 1){
          this.setData({
            hasmore: false
          })

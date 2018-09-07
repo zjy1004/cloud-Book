@@ -1,9 +1,47 @@
 <!--pages/study/study.wxml-->
-<view wx:for="{{bookData}}" wx:key="{{index}}" >
-<view>
-<image src="{{item.book.img}}"></image>
+<image src='/static/img/loading.svg' class="loading" wx:if="{{isLoading}}"></image>
+<view wx:else>
+<view class="study" wx:for="{{bookData}}" wx:key="{{index}}">
+  <view class="study-l" bindtap="getDetails" data-id="{{item.book._id}}">
+    <image src="{{item.book.img}}"></image>
+  </view>
+  <view class="study-r">
+    <view class="r-title" bindtap="getDetails" data-id="{{item.book._id}}">
+      {{item.book.title}}
+    </view>
+    <view class="r-content">
+      <view class="c-text">
+        书籍{{item.title.index}}/{{item.title.total}}章
+      </view>
+      <view class="c-progress">
+        <view class="c-p-l">
+          <progress percent="{{item.percent}}" stroke-width="5" />
+          <view>
+            上次查看:{{item.title.title}}
+          </view>
+        </view>
+        <view class="c-p-r">
+          <view>已看{{item.percent}}%</view>
+          <view>11小时前</view>
+        </view>
+      </view>
+    </view>
+    <view class="r-btn">
+      <button bindtap="handleGet" id="{{item.title._id}}" data-id="{{item.book._id}}">继续阅读</button>
+      <button bindtap="getDetails" data-id="{{item.book._id}}">查看文档</button>
+    </view>
+  </view>
 </view>
-<view>
-{{item.book.title}}
+
+<view wx:if="{{!isLoading}}">
+<view wx:if="{{hasmore}}"  class="loadmore">
+  <image src="/static/img/loadMore.svg"></image>
+  <text>正拼命加载中...</text>
 </view>
+<view class="no-more" wx:else>
+  <text>我是有底线的</text>
+  <text class="line"></text>
+</view>
+</view>
+
 </view>

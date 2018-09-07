@@ -1,1 +1,61 @@
 /* pages/study/study.wxss */
+.study{
+  margin: 10rpx;
+  display: flex;
+  height: 300rpx
+}
+.study .study-l image{
+  width: 200rpx;
+  height: 280rpx
+}
+.study .study-r{
+  margin-left: 20rpx;
+  width: 510rpx;
+  height: 280rpx
+}
+.study-r .r-title{
+  font-size: 17px;
+}
+.study-r .r-content{
+  
+ 
+}
+ .r-content .c-text{
+  font-size: 15px;
+  color: #888;
+  margin-top: 10rpx
+}
+.r-content .c-progress{
+   margin-top: 20rpx;
+   display: flex;
+   justify-content: space-between;
+   font-size: 13px;
+   color: #888;
+
+ }
+.c-progress .c-p-l{
+    width: 330rpx;
+    margin-top: 10rpx
+}
+.c-progress .c-p-l view{
+margin-top: 20rpx;
+}
+.c-progress .c-p-r{
+    width: 140rpx;
+    text-align: center;
+    float: right
+}
+.c-progress .c-p-r view{
+  margin: 10rpx;
+}
+.study-r .r-btn{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25rpx;
+}
+.study-r .r-btn button{
+ font-size: 14px;
+ border-radius:7px;
+
+
+}
