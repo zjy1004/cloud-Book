@@ -39,10 +39,13 @@ Page({
     })
   },
   getData() {
-    fetch.get('/collection').then(res => {
-      console.log(res)
-      this.setData({
-        collections: res.data.length
+    return new Promise((resolve, reject) => {
+      fetch.get('/collection').then(res => {
+        resolve()
+        console.log(res)
+        this.setData({
+          collections: res.data.length
+        })
       })
     })
   },
@@ -83,7 +86,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getData().then(() => {
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**

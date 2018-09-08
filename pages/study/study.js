@@ -8,9 +8,10 @@ Page({
   data: {
     bookId:"",
     bookData: [],
-    isLoading: true,
-    pn: 1,
-    hasmore: true
+    isLoading: false,
+    time: ""
+    // pn: 1,
+    // hasmore: true
   },
 
   /**
@@ -19,26 +20,55 @@ Page({
   onLoad: function (options) {
     this.getRead()
   },
+  //获取百分比
   getPercent(e) {
     let Arr = e.data
     Arr.forEach(item => {
       item.percent = item.title.index / item.title.total * 100
       item.percent = item.percent.toFixed(0)
     })
-    
   },
+  //获取时间差
+  getDifftime(arr) {  
+    arr.forEach(item => {
+      // console.log(item)
+      let dateBegin = item.updatedTime
+      let dateEnd = new Date() // 获取当前时间
+      let btime = Date.parse(new Date(dateBegin)); //dateBegin 为开始时间
+      let etime = Date.parse(new Date(dateEnd)); // dateEnd 为结束时间
+      let usedTime = etime - btime; //两个时间戳相差的毫秒数
+      // 计算相差天数
+      let days = Math.floor(usedTime / (24 * 3600 * 1000));
+      //计算出相差小时数
+      let leave1 = usedTime % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
+      let hours = Math.floor(leave1 / (3600 * 1000));
+      // //计算相差分钟数
+      // let leave2 = leave1 % (3600 * 1000); //计算小时数后剩余的毫秒数
+      // let minutes = Math.floor(leave2 / (60 * 1000));
+      let difftime = days + "天" + hours + "小时"
+      item.difftime = difftime
+    })
+  },
+
+
   //获取已经读的数据
   getRead() {
-    return new Promise((resolve, reject) => {
-      fetch.get('/readList').then(res => {
-        this.getPercent(res)
-        console.log(res)
-        this.setData({
-          bookData: res.data,
-          isLoading: false
-        })
-      })
-    })  
+    this.setData({
+      isLoading: true
+    })
+   return new Promise((resolve, reject) => {
+     fetch.get('/readList').then(res => {
+       resolve()
+       this.getPercent(res)
+       this.getDifftime(res.data)
+       console.log(res)
+       this.setData({
+         bookData: res.data,
+         isLoading: false,
+       })
+     })  
+   })
+   
   },
   //获取单个图书
   getDetails(e) {
@@ -90,33 +120,29 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getRead.then(() => {
+    this.getRead().then(() => {
       wx.stopPullDownRefresh()
-      this.setData({
-        pn: 1,
-        hasmore: true,
-        isLoading: true
-      })
     })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    if (this.data.hasmore) {
-      this.setData({
-        pn: this.data.pn + 1
-      })
-      this.getRead().then(res => {
-        if (res.data.length < 2) {
-          this.setData({
-            hasmore: false
-          })
-        }
-      })
-    } 
-  },
+  // onReachBottom: function () {
+  //   if (this.data.hasmore) {
+  //     this.setData({
+  //       pn: this.data.pn + 1
+  //     })
+  //     this.getRead().then(res => {
+  //       console.log(res)
+  //       if (res.data.length < 1) {
+  //         this.setData({
+  //           hasmore: false
+  //         })
+  //       }
+  //     })
+  //   } 
+  // },
 
   /**
    * 用户点击右上角分享

@@ -22,7 +22,7 @@
         </view>
         <view class="c-p-r">
           <view>已看{{item.percent}}%</view>
-          <view>11小时前</view>
+          <view>{{item.difftime}}</view>
         </view>
       </view>
     </view>
@@ -33,7 +33,7 @@
   </view>
 </view>
 
-<view wx:if="{{!isLoading}}">
+<!-- <view wx:if="{{!isLoading}}">
 <view wx:if="{{hasmore}}"  class="loadmore">
   <image src="/static/img/loadMore.svg"></image>
   <text>正拼命加载中...</text>
@@ -42,6 +42,6 @@
   <text>我是有底线的</text>
   <text class="line"></text>
 </view>
-</view>
+</view> -->
 
 </view>

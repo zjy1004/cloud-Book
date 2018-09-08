@@ -1,6 +1,10 @@
 /* pages/personal/personal.wxss */
 .btn{
-  margin-top: 300rpx;
+  width: 300rpx;
+  margin-top: 300px;
+  background-color: #9AEA64;
+  color: #fefefe;
+  border-radius: 5px;
 }
 .personcenter{
   display: flex;
