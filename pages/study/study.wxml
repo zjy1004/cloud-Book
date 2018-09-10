@@ -1,6 +1,14 @@
 <!--pages/study/study.wxml-->
 <image src='/static/img/loading.svg' class="loading" wx:if="{{isLoading}}"></image>
 <view wx:else>
+
+
+<view wx:if="{{loadMore}}" class="loadmore">
+  <image src="/static/img/loadMore.svg"></image>
+  <text>正拼命加载中...</text>
+</view>
+
+ 
 <view class="study" wx:for="{{bookData}}" wx:key="{{index}}">
   <view class="study-l" bindtap="getDetails" data-id="{{item.book._id}}">
     <image src="{{item.book.img}}"></image>

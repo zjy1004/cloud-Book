@@ -9,11 +9,9 @@ Page({
     bookId:"",
     bookData: [],
     isLoading: false,
-    time: ""
     // pn: 1,
     // hasmore: true
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -49,12 +47,11 @@ Page({
       item.difftime = difftime
     })
   },
-
-
+  
   //获取已经读的数据
   getRead() {
     this.setData({
-      isLoading: true
+      isLoading:true
     })
    return new Promise((resolve, reject) => {
      fetch.get('/readList').then(res => {
@@ -64,7 +61,7 @@ Page({
        console.log(res)
        this.setData({
          bookData: res.data,
-         isLoading: false,
+         isLoading:false
        })
      })  
    })

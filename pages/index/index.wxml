@@ -39,5 +39,15 @@
   </view>
 </view>
 
+<view wx:if="{{!isLoading}}">
+<view wx:if="{{hasmore}}"  class="loadmore">
+  <image src="/static/img/loadMore.svg"></image>
+  <text>正拼命加载中...</text>
+</view>
+<view class="no-more" wx:else>
+  <text>我是有底线的</text>
+  <text class="line"></text>
+</view>
+</view>
 
 </view>

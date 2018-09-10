@@ -9,7 +9,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userMessage: {},
     isLoading:true,
-    collections: ""
+    collections: "",
+    loadMore:false 
   },
 
   /**
@@ -39,12 +40,15 @@ Page({
     })
   },
   getData() {
+    this.setData({
+      loadMore: true 
+    })
     return new Promise((resolve, reject) => {
       fetch.get('/collection').then(res => {
         resolve()
-        console.log(res)
         this.setData({
-          collections: res.data.length
+          collections: res.data.length,
+          loadMore: false
         })
       })
     })

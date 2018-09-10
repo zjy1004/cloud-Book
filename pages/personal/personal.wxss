@@ -1,4 +1,14 @@
 /* pages/personal/personal.wxss */
+page{
+    background: #EEEEF3;
+}
+.loadmore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+}
 .btn{
   width: 300rpx;
   margin-top: 300px;
@@ -7,21 +17,22 @@
   border-radius: 5px;
 }
 .personcenter{
+  margin-top: 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #3485fb;
-  color: #fff;
+  color: #000000;
+  background: #fefefe;
+
 }
 .header-top{
   display: flex;
-  
+  border-bottom: 1px solid #EEEEF3
 }
 .header-img image{
   margin-top: 30rpx;
   width: 150rpx;
   height: 150rpx;
-  border-radius: 100%;
 }
 .header-r{
   margin-top: 30rpx;
@@ -39,7 +50,9 @@
   justify-content: space-between;
   padding: 15rpx 150rpx;
   font-size: 16px;
+
 }
 .bottom-text{
   text-align: center;
 }
+

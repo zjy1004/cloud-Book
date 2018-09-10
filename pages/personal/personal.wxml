@@ -1,11 +1,16 @@
 <!--pages/personal/personal.wxml-->
-<button class="btn" wx:if="{{isLoading}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登陆</button>
-<view wx:else class='personcenter container'>
+ <button wx:if="{{isLoading}}" class="btn"open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击授权登陆</button>
+ <view wx:else>
+ <view wx:if="{{loadMore}}" class="loadmore">
+  <image src="/static/img/loadMore.svg"></image>
+  <text>正拼命加载中...</text>
+</view>
+ <view class='personcenter container'>
   <view class='header-top'>
     <view class='header-img'><image src='{{userMessage.avatarUrl}}'></image></view>
     <view class='header-r'>
       <view>{{userMessage.nickName}}</view>
-      <view class='header-label'>这家伙很懒，什么都没留下</view>
+      <view class='header-label'>个性签名:</view>
     </view>
   </view>
   <view class='header-bottom'>
@@ -17,10 +22,13 @@
     </view>
     <view>
       <view class='bottom-text'>
-        <text>4</text>
+        <text>0</text>
       </view>
       <view>关注</view>
     </view>
   </view>
 </view>
+ 
+ </view>
+
 
